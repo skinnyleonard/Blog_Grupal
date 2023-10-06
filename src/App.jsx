@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { Comenter }from './components/Comenter'
 import { Link } from "react-router-dom";
+import  Header  from './components/Header'
 
 function App() {
 
@@ -36,15 +37,16 @@ function App() {
   }, [ posts ])
 
   return(
-    <div>
+    <div className="contenedorPosts">
+      <Header />
       <Comenter createNewPost={createNewPost}/>
       {posts.map(post => (
         <div className="postContenedor">
-          <Link to={post.user}><h1>{post.user}</h1></Link>
-          <p>{post.post}</p>
+          <Link to={post.user}><h1>{post.post}</h1></Link>
+          <p>posteo: {post.user}</p>
         </div>
       ))}
     </div>
   )
 }
-export default App;
+export default App
