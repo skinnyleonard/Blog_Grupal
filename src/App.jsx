@@ -1,52 +1,64 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Poster from "./components/Poster";
+import Fullpost from "./components/Fullpost";
 import "./App.css";
-import { Comenter }from './components/Comenter'
-import { Link } from "react-router-dom";
-import  Header  from './components/Header'
 
-function App() {
-
-  const [ posts, setPosts ] = useState([
-    {user:'el rayo mqueen', post:'soy veloz'},
-    {user:'el jony', post:'cuando jugamos un fulbo?'},
-    {user:'Antonio', post:'¿Donde puedo conseguir trabajo?'},
-    {user:'Manuel', post:'¿Recomendaciones de lapiceras para dibujo tecnico?'},
-  ])
-
-  function createNewPost(newUser, newPost){
-    setPosts([...posts, {user: newUser, post: newPost}])
+function App({ createNewPost }) {
+  const [info, setInfo] = useState([
+    {
+      user: "mickey",
+      post: "disney no me paga lo suficiente",
+    },
+    {
+      user: "el rayo mqueen",
+      post: "soy veloz",
+    },
+    {
+      user: "Antonio",
+      post: "donde consigo trabajo?",
+    },
+    {
+      user: "Ruperto",
+      post: "¿como uso una computadora?",
+    },
+    {
+      user: "skeletor",
+      post: "ombligo",
+    },
+  ]);
+  function createNewPost (newUser, newPost) {
+    setInfo([...info, {user: newUser, post: newPost}])
   }
   useEffect(() => {
     let data = localStorage.getItem('theusers')
     if (data) {
-      setPosts(JSON.parse(data))
+      setInfo(JSON.parse(data))
     }
   }, [])
   useEffect(() => {
     let data = localStorage.getItem('theposts')
     if (data) {
-      setPosts(JSON.parse(data))
+      setInfo(JSON.parse(data))
     }
   }, [])
 
   useEffect(() =>{
-    localStorage.setItem('theposts', JSON.stringify(posts))
-  }, [ posts ])
+    localStorage.setItem('theposts', JSON.stringify(info))
+  }, [ info ])
   useEffect(() =>{
-    localStorage.setItem('theusers', JSON.stringify(posts))
-  }, [ posts ])
+    localStorage.setItem('theusers', JSON.stringify(info))
+  }, [ info ])
 
-  return(
-    <div className="contenedorPosts">
-      <Header />
-      <Comenter createNewPost={createNewPost}/>
-      {posts.map(post => (
-        <div className="postContenedor">
-          <Link to={post.user}><h1>{post.post}</h1></Link>
-          <p>posteo: {post.user}</p>
-        </div>
-      ))}
-    </div>
-  )
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Poster info={info} createNewPost={createNewPost}/>} />
+        <Route path="/posts/:user" element={<Fullpost info={info} />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-export default App
+
+export default App;
+import React from 'react'

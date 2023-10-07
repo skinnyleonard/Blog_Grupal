@@ -2,9 +2,9 @@ body{
     box-sizing: 0;
     padding: 0;
     margin: 0;
-    background: rgb(228, 228, 228);
+    background: rgb(231, 231, 231)
 }
-.postContenedor{
+.posteo{
     margin-top: 20px;
     margin-left: 10px;
     padding: 10px;
@@ -16,21 +16,28 @@ body{
     max-width: 550px;
     overflow-wrap: break-word;
 }
-.postContenedor h1, a{
+.posteo h1, a{
     font-size: 23px;
     line-height: 23px;
     text-decoration: none;
     color:  #273f70;
     cursor: pointer;
 }
-.postContenedor:hover{
+.posteo:hover{
     transform: scale(1.05);
     transition: 0.1s;
 }
-.inputs{
-    position: absolute;
-    right: 200px;
-    top: 173px;
+.postPres{
+    margin-top: 20px;
+    margin-left: 10px;
+    padding: 10px;
+    background: rgba(124, 124, 124, 0.596);
+    display: table;
+    border-radius: 10px;
+    font-size: 15px;
+    border: 1px solid black;
+    max-width: 550px;
+    overflow-wrap: break-word;
 }
 .comenterForm{
     line-height: 10px;
@@ -38,13 +45,13 @@ body{
     border: 1px solid #a7a7a7;
     border-radius: 4px;
     padding: 9px;
-}
-.inputs input{
-    box-sizing:border-box;
+    right: 200px;
+    top: 308px;
+    box-sizing: border-box;
     width: 230px;
     height: auto;
 }
-.contenedorPosts{
+.posteo{
     top: 10px;
 }
 .header{
@@ -53,8 +60,30 @@ body{
     background: #cbcbcb;
     border-bottom: 1px solid #bebebe;
 }
-.header h1, .header h2{
-    line-height: 0;
-    display: inline-block;
-    margin-left: 20px;
+.header h1{
+    position: absolute;
+    right: 36px;
+    top: 0px;
+}
+.header h2{
+    position: absolute;
+    right: 36px;
+    top: 43px;
+}
+.header p{
+    position: absolute;
+    top: 15px;
+    left: 21px;
+    width: 89px;
+    text-align: left;
+}
+.updates{
+    line-height: 10px;
+    position: absolute;
+    padding: 9px;
+    right: 200px;
+    top: 194px;
+    box-sizing: border-box;
+    width: 230px;
+    height: auto;
 }
