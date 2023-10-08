@@ -50,6 +50,7 @@ body{
 .postPres{
     margin-top: 20px;
     margin-left: 10px;
+    margin-bottom: 30px;
     padding: 10px;
     background: rgba(124, 124, 124, 0.596);
     display: table;
@@ -68,7 +69,7 @@ body{
     right: 200px;
     top: 308px;
     box-sizing: border-box;
-    width: 230px;
+    width: 277px;
     height: auto;
 }
 .posteo{
@@ -101,8 +102,8 @@ body{
     line-height: 10px;
     position: absolute;
     padding: 9px;
-    right: 200px;
-    top: 194px;
+    right: 251px;
+    top: 207px;
     box-sizing: border-box;
     width: 230px;
     height: auto;
@@ -111,7 +112,7 @@ body{
 }
 .textarea{
     height: 83px;
-    width: 171px;
+    width: 250px;
 }
 .buscador{
     text-align: center;
@@ -122,4 +123,22 @@ body{
 }
 .buscador input{
     width: 334px;
+}
+.comments{
+    border-bottom: 1px solid grey;
+    width: 300px;
+    margin-left: 18px;
+    font-size: 14px;
+}
+.fa-github{
+    z-index: +10;
+    position: absolute;
+    font-size: 26px;
+    right: 39px;
+    top: 66px;
+    color: black;
+}
+.fa-github:hover{
+    transform: rotate(360deg) scale(1.5);
+	transition: 0.5s;
 }

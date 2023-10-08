@@ -22,8 +22,8 @@ function Poster({ info, createNewPost }) {
       <Header />
       <div className="updates">
         <h1 style={{lineHeight:'0', fontWeight:'lighter'}}>Actualizaciones:</h1>
-        <small>7/10/2023</small>
-        <h2 style={{lineHeight:'0', fontSize:'19px'}}>useParams</h2>
+        <small>8/10/2023</small>
+        <h2 style={{lineHeight:'0', fontSize:'19px'}}>corrio la formula 1</h2>
       </div>
         <form onSubmit={handleSubmit} className="comenterForm">
           <h1>Postea algo:</h1>
@@ -32,6 +32,7 @@ function Poster({ info, createNewPost }) {
             placeholder="nombre"
             onChange={(e) => setNewUser(e.target.value)}
             value={newUser}
+            style={{width: '249px'}}
           />
           <textarea
             className="textarea"
