@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Poster from "./components/Poster";
 import Fullpost from "./components/Fullpost";
+import ReactMarkdown from 'react-markdown'
 import "./App.css";
 
 function App({ createNewPost }) {

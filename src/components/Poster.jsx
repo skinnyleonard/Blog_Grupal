@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import Posts from "./Posts";
 import Header from "./Header";
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'; 
 
 function Poster({ info, createNewPost }) {
   const [newUser, setNewUser] = useState("");
@@ -19,9 +21,9 @@ function Poster({ info, createNewPost }) {
     <>
       <Header />
       <div className="updates">
-        <h1 style={{lineHeight:'0'}}>Actualizaciones:</h1>
+        <h1 style={{lineHeight:'0', fontWeight:'lighter'}}>Actualizaciones:</h1>
         <small>7/10/2023</small>
-        <h2 style={{lineHeight:'0'}}>useParams</h2>
+        <h2 style={{lineHeight:'0', fontSize:'19px'}}>useParams</h2>
       </div>
         <form onSubmit={handleSubmit} className="comenterForm">
           <h1>Postea algo:</h1>
@@ -31,12 +33,14 @@ function Poster({ info, createNewPost }) {
             onChange={(e) => setNewUser(e.target.value)}
             value={newUser}
           />
-          <input
+          <textarea
+            className="textarea"
             type="text"
             placeholder="post"
             onChange={(e) => setNewPost(e.target.value)}
             value={newPost}
-          />
+            />
+            <Markdown remarkPlugins={[remarkGfm]}>{newPost}</Markdown>
           <button>Enviar</button>
         </form>
         <div>

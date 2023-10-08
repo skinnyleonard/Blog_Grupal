@@ -1,5 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'; 
 
 function Fullpost({ info }) {
   const { user } = useParams();
@@ -11,7 +13,7 @@ function Fullpost({ info }) {
           .map((post) => (
             <div className="postPres">
               <h3>{post.user}</h3>
-              <h1>posteo: {post.post}</h1>
+              <h1>posteo: <Markdown remarkPlugins={[remarkGfm]}>{post.post}</Markdown></h1>
             </div>
           ))}
       </div>
