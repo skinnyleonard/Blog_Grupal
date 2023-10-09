@@ -1,4 +1,5 @@
 import React from "react";
+import logoBlog from '../logoBlog.png'
 
 function Header() {
   return (
@@ -9,7 +10,7 @@ function Header() {
         href="https://github.com/skinnyleonard/Blog_Grupal"
         target="_blank"
       ></a>
-      <img src="../thumbnail_Blog.png" alt="" />
+      <img src={logoBlog}/>
       <form className="buscador">
         <input type="search" placeholder="buscar un post..." />
         <button>buscar</button>
