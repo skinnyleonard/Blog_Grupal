@@ -10,7 +10,7 @@ function Posts({ info }) {
     <>
       {info.map((post) => (
         <div className="posteo">
-          <Link to={`/posts/${post.user}`}>
+          <Link to={`/posts/${post.id}`}>
            <h1><Markdown remarkPlugins={[remarkGfm]}>{post.post}</Markdown></h1>
           </Link>
           <h3>publicado por: {post.user}</h3>

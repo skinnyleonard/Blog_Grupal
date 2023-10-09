@@ -6,7 +6,7 @@ import remarkGfm from "remark-gfm";
 import Comentador from "./Comentador";
 
 function Fullpost({ info }) {
-  const { user } = useParams();
+  const { id } = useParams();
 
   const [comments, setComments] = useState([
     { thename: "pablito", comment: "me gusta si dale" },
@@ -22,16 +22,16 @@ function Fullpost({ info }) {
     }
   }, []);
   useEffect(() => {
-    let data = localStorage.getItem("thecomments");
+    let data = localStorage.getItem(`thecomments/${id}`);
     if (data) {
       setComments(JSON.parse(data));
     }
   }, []);
+  // useEffect(() => {
+  //   localStorage.setItem("thenames", JSON.stringify(comments));
+  // }, [comments]);
   useEffect(() => {
-    localStorage.setItem("thenames", JSON.stringify(comments));
-  }, [comments]);
-  useEffect(() => {
-    localStorage.setItem("thecomments", JSON.stringify(comments));
+    localStorage.setItem(`thecomments/${id}`, JSON.stringify(comments));
   }, [comments]);
 
   return (
@@ -39,7 +39,7 @@ function Fullpost({ info }) {
       <section>
         <div>
           {info
-            .filter((post) => post.user === user)
+            .filter((post) => post.id == id)
             .map((post) => (
               <div className="postPres">
                 <h3>{post.user} <small>posteo:</small></h3>

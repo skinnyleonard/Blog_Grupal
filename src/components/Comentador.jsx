@@ -1,14 +1,21 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 function Comentador(props) {
+  const { id } = useParams();
+
   const [newComment, setNewComment] = useState("");
   const [newName, setNewName] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
     props.createNewComment(newName, newComment)
-    localStorage.setItem("thenames", newName);
-    localStorage.setItem("thecomments", newComment);
+    // localStorage.setItem("thenames", newName);
+    let comments = JSON.parse(localStorage.getItem(`thecomments/${id}`));
+    if (comments)
+      localStorage.setItem(`thecomments/${id}`, JSON.stringify([...comments, newComment]));
+    else
+      localStorage.setItem(`thecomments/${id}`, JSON.stringify([newComment]));
     setNewName("");
     setNewComment("");
   }

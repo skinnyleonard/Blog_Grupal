@@ -1,10 +1,13 @@
 import React from "react";
 import logoBlog from '../logoBlog.png'
+import { Link } from "react-router-dom";
+import Poster from "./Poster";
 
 function Header() {
   return (
     <header className="header">
-      <h1>algo</h1>
+    <h1>postea</h1>
+      
       <a
         className="fa-brands fa-github"
         href="https://github.com/skinnyleonard/Blog_Grupal"

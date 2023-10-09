@@ -3,32 +3,38 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Poster from "./components/Poster";
 import Fullpost from "./components/Fullpost";
 import "./App.css";
+import Admin from './components/Admin'
 
 function App({ createNewPost }) {
   const [info, setInfo] = useState([
     {
+      id: 1,
       user: "mickey",
       post: "disney no me paga lo suficiente",
     },
     {
+      id: 2,
       user: "el rayo mqueen",
       post: "soy veloz",
     },
     {
+      id: 3,
       user: "Antonio",
       post: "donde consigo trabajo?",
     },
     {
+      id:4,
       user: "Ruperto",
       post: "¿como uso una computadora?",
     },
     {
+      id:5,
       user: "skeletor",
       post: "ombligo",
     },
   ]);
   function createNewPost (newUser, newPost) {
-    setInfo([...info, {user: newUser, post: newPost}])
+    setInfo([...info, {id: info.length+1,user: newUser, post: newPost}])
   }
   useEffect(() => {
     let data = localStorage.getItem('theusers')
@@ -54,7 +60,9 @@ function App({ createNewPost }) {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Poster info={info} createNewPost={createNewPost}/>} />
-        <Route path="/posts/:user" element={<Fullpost info={info} />} />
+        <Route path="/posts/:id" element={<Fullpost info={info} />} />
+        {/* <Route exact path="/poster" element={<Poster />}/> */}
+        <Route path="/admin" element={<Admin />}/>
       </Routes>
     </BrowserRouter>
   );
