@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Poster from "./components/Poster";
+import Posts from "./components/Posts";
 import Fullpost from "./components/Fullpost";
 import "./App.css";
 import Admin from './components/Admin'
@@ -19,18 +20,8 @@ function App({ createNewPost }) {
     },
     {
       id: 3,
-      user: "Antonio",
-      post: "donde consigo trabajo?",
-    },
-    {
-      id:4,
-      user: "Ruperto",
+      user: "ruperto",
       post: "¿como uso una computadora?",
-    },
-    {
-      id:5,
-      user: "skeletor",
-      post: "ombligo",
     },
   ]);
   function createNewPost (newUser, newPost) {
@@ -57,14 +48,16 @@ function App({ createNewPost }) {
   }, [ info ])
 
   return (
+    <>
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Poster info={info} createNewPost={createNewPost}/>} />
+        <Route exact path="/" element={<Posts info={info} setInfo={setInfo}/>}/>
+        <Route exact path="/poster" element={<Poster info={info} createNewPost={createNewPost}/>} />
         <Route path="/posts/:id" element={<Fullpost info={info} />} />
-        {/* <Route exact path="/poster" element={<Poster />}/> */}
         <Route path="/admin" element={<Admin />}/>
       </Routes>
     </BrowserRouter>
+    </>
   );
 }
 

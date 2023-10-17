@@ -8,9 +8,7 @@ import Comentador from "./Comentador";
 function Fullpost({ info }) {
   const { id } = useParams();
 
-  const [comments, setComments] = useState([
-    { thename: "pablito", comment: "me gusta si dale" },
-  ]);
+  const [comments, setComments] = useState([]);
 
   function createNewComment(newName, newComment) {
     setComments([...comments, { thename: newName, comment: newComment }]);
@@ -27,9 +25,6 @@ function Fullpost({ info }) {
       setComments(JSON.parse(data));
     }
   }, []);
-  // useEffect(() => {
-  //   localStorage.setItem("thenames", JSON.stringify(comments));
-  // }, [comments]);
   useEffect(() => {
     localStorage.setItem(`thecomments/${id}`, JSON.stringify(comments));
   }, [comments]);

@@ -142,3 +142,7 @@ body{
     transform: rotate(360deg) scale(1.5);
 	transition: 0.5s;
 }
+.fa-xmark{
+    cursor: pointer;
+    font-size: 28px;
+}

@@ -10,7 +10,6 @@ function Comentador(props) {
   function handleSubmit(e) {
     e.preventDefault();
     props.createNewComment(newName, newComment)
-    // localStorage.setItem("thenames", newName);
     let comments = JSON.parse(localStorage.getItem(`thecomments/${id}`));
     if (comments)
       localStorage.setItem(`thecomments/${id}`, JSON.stringify([...comments, newComment]));

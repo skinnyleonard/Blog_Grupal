@@ -1,9 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import Posts from "./Posts";
-import Header from "./Header";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm'; 
+import { Link } from "react-router-dom";
 
 function Poster({ info, createNewPost }) {
   const [newUser, setNewUser] = useState("");
@@ -19,7 +18,6 @@ function Poster({ info, createNewPost }) {
   }
   return (
     <>
-      <Header />
       <div className="updates">
         <h1 style={{lineHeight:'0', fontWeight:'lighter'}}>Actualizaciones:</h1>
         <small>8/10/2023</small>
@@ -44,9 +42,7 @@ function Poster({ info, createNewPost }) {
             <Markdown remarkPlugins={[remarkGfm]}>{newPost}</Markdown>
           <button>Enviar</button>
         </form>
-        <div>
-          <Posts info={info} />
-        </div>
+        <Link to={`/`}><h1>Volver al Home</h1></Link>
     </>
   );
 }
