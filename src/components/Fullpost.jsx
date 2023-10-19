@@ -11,7 +11,7 @@ function Fullpost({ info }) {
   const [comments, setComments] = useState([]);
 
   function createNewComment(newName, newComment) {
-    setComments([...comments, { thename: newName, comment: newComment }]);
+    setComments([...comments, {id:`${id}` ,thename: newName, comment: newComment }]);
   }
   useEffect(() => {
     let data = localStorage.getItem("thenames");

@@ -9,7 +9,10 @@ function Posts({ info, setInfo, show, setShow, comments, setComments }) {
 
   function deletePosts(id){
     const newPosts = info.filter(post => post.id !== id)
+    
+    const newComments = comments.filter(comment => comment.id !== id)
     setInfo(newPosts)
+    setComments(newComments)
   }
   return (
     <>
@@ -39,7 +42,7 @@ function Posts({ info, setInfo, show, setShow, comments, setComments }) {
 
 export default Posts;
 
-function Post({ link, pub, info, deletePosts, ide, show }){
+function Post({ link, pub, info, deletePosts, ide, show, ide2 }){
 
   return(
     <div className="posteo">

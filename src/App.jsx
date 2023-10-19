@@ -7,7 +7,8 @@ import "./App.css";
 import Admin from './components/Admin'
 
 function App({ createNewPost }) {
-  const [ show, setShow ] = useState(false)
+  const [ show, setShow ] = useState(true)
+  const [comments, setComments] = useState([]);
 
   const [info, setInfo] = useState([
     {
@@ -62,7 +63,7 @@ function App({ createNewPost }) {
     <>
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Posts info={info} setInfo={setInfo} show={show} setShow={setShow}/>}/>
+        <Route exact path="/" element={<Posts info={info} setInfo={setInfo} show={show} setShow={setShow} comments={comments} setComments={setComments}/>}/>
         <Route exact path="/poster" element={<Poster info={info} createNewPost={createNewPost}/>} />
         <Route path="/posts/:id" element={<Fullpost info={info}/>} />
         <Route path="/admin" element={<Admin show={show} setShow={setShow}/>}/>
