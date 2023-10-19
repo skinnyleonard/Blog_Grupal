@@ -62,15 +62,13 @@ body{
 }
 .comenterForm{
     line-height: 10px;
-    position: absolute;
     border: 1px solid #a7a7a7;
     border-radius: 4px;
     padding: 9px;
-    right: 200px;
-    top: 308px;
     box-sizing: border-box;
     width: 277px;
     height: auto;
+    margin: 0 auto;
 }
 .posteo{
     top: 10px;

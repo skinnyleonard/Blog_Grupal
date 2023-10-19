@@ -6,7 +6,7 @@ function Header({ show, setShow }) {
   return (
     <header className="header">
       <Link to={`/poster`}>
-        <h1>postea</h1>
+        <h1>postea algo</h1>
       </Link>
 
       <a

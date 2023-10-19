@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm'; 
+import remarkGfm from 'remark-gfm';
 import { Link } from "react-router-dom";
 
 function Poster({ info, createNewPost }) {
@@ -18,31 +18,26 @@ function Poster({ info, createNewPost }) {
   }
   return (
     <>
-      <div className="updates">
-        <h1 style={{lineHeight:'0', fontWeight:'lighter'}}>Actualizaciones:</h1>
-        <small>8/10/2023</small>
-        <h2 style={{lineHeight:'0', fontSize:'19px'}}>corrio la formula 1</h2>
-      </div>
-        <form onSubmit={handleSubmit} className="comenterForm">
-          <h1>Postea algo:</h1>
-          <input
-            type="text"
-            placeholder="nombre"
-            onChange={(e) => setNewUser(e.target.value)}
-            value={newUser}
-            style={{width: '249px'}}
-          />
-          <textarea
-            className="textarea"
-            type="text"
-            placeholder="post"
-            onChange={(e) => setNewPost(e.target.value)}
-            value={newPost}
-            />
-            <Markdown remarkPlugins={[remarkGfm]}>{newPost}</Markdown>
-          <button>Enviar</button>
-        </form>
-        <Link to={`/`}><h1>Volver al Home</h1></Link>
+      <Link to={`/`}><h1>Volver al Home</h1></Link>
+      <form onSubmit={handleSubmit} className="comenterForm">
+        <h1>Postea algo:</h1>
+        <input
+          type="text"
+          placeholder="nombre"
+          onChange={(e) => setNewUser(e.target.value)}
+          value={newUser}
+          style={{ width: '249px' }}
+        />
+        <textarea
+          className="textarea"
+          type="text"
+          placeholder="post"
+          onChange={(e) => setNewPost(e.target.value)}
+          value={newPost}
+        />
+        <Markdown remarkPlugins={[remarkGfm]}>{newPost}</Markdown>
+        <button>Enviar</button>
+      </form>
     </>
   );
 }

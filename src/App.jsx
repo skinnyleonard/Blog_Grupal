@@ -64,7 +64,7 @@ function App({ createNewPost }) {
       <Routes>
         <Route exact path="/" element={<Posts info={info} setInfo={setInfo} show={show} setShow={setShow}/>}/>
         <Route exact path="/poster" element={<Poster info={info} createNewPost={createNewPost}/>} />
-        <Route path="/posts/:id" element={<Fullpost info={info} />} />
+        <Route path="/posts/:id" element={<Fullpost info={info}/>} />
         <Route path="/admin" element={<Admin show={show} setShow={setShow}/>}/>
       </Routes>
     </BrowserRouter>
