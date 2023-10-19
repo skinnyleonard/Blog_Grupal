@@ -7,6 +7,8 @@ import "./App.css";
 import Admin from './components/Admin'
 
 function App({ createNewPost }) {
+  const [ show, setShow ] = useState(false)
+
   const [info, setInfo] = useState([
     {
       id: 1,
@@ -39,6 +41,12 @@ function App({ createNewPost }) {
       setInfo(JSON.parse(data))
     }
   }, [])
+  useEffect(()=> {
+    let data = localStorage.getItem('admin')
+    if (data){
+      setShow(JSON.parse(data))
+    }
+  }, [])
 
   useEffect(() =>{
     localStorage.setItem('theposts', JSON.stringify(info))
@@ -46,15 +54,18 @@ function App({ createNewPost }) {
   useEffect(() =>{
     localStorage.setItem('theusers', JSON.stringify(info))
   }, [ info ])
+  useEffect(()=> {
+    localStorage.setItem('admin', JSON.stringify(show))
+  }, [ show ])
 
   return (
     <>
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Posts info={info} setInfo={setInfo}/>}/>
+        <Route exact path="/" element={<Posts info={info} setInfo={setInfo} show={show} setShow={setShow}/>}/>
         <Route exact path="/poster" element={<Poster info={info} createNewPost={createNewPost}/>} />
         <Route path="/posts/:id" element={<Fullpost info={info} />} />
-        <Route path="/admin" element={<Admin />}/>
+        <Route path="/admin" element={<Admin show={show} setShow={setShow}/>}/>
       </Routes>
     </BrowserRouter>
     </>

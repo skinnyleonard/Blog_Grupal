@@ -1,9 +1,8 @@
 import React from "react";
 import logoBlog from "../logoBlog.png";
 import { Link } from "react-router-dom";
-import Poster from "./Poster";
 
-function Header() {
+function Header({ show, setShow }) {
   return (
     <header className="header">
       <Link to={`/poster`}>
@@ -20,6 +19,8 @@ function Header() {
         <input type="search" placeholder="buscar un post..." />
         <button>buscar</button>
       </form>
+      {show && <h2>sos administrador</h2>}
+      {show && <button className="boton" onClick={() => {setShow(false)}}>salir del admin</button>}
     </header>
   );
 }

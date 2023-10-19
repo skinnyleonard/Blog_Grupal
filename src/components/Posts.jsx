@@ -5,8 +5,7 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm'; 
 import Header from "./Header";
 
-function Posts({ info, setInfo }) {
-  const [ show, setShow ] = useState(false)
+function Posts({ info, setInfo, show, setShow }) {
 
   function deletePosts(id){
     const newPosts = info.filter(post => post.id !== id)
@@ -14,7 +13,7 @@ function Posts({ info, setInfo }) {
   }
   return (
     <>
-      <Header />
+      <Header show={show} setShow={setShow}/>
       {info.map(post => 
         <div >
           <Post 

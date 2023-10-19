@@ -5,12 +5,8 @@ function Admin({ setShow, show }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    if (confirm == 123) {
-      // window.location = '/';
-      setShow(!show)
-    } else console.log("mal");
-    
+    setShow(true)
+    window.location='/'
     setConfirm("");
   }
 

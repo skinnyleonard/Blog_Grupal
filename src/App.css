@@ -88,8 +88,16 @@ body{
 }
 .header h2{
     position: absolute;
-    right: 36px;
-    top: 43px;
+    right: 0;
+    left: 0;
+    top: 88px;
+    font-size: 20px;
+    text-align: center;
+}
+.boton{
+    position: absolute;
+    top: 88px;
+    font-size: 20px;
 }
 .header img{
     position: absolute;
