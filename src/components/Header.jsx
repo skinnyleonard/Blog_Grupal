@@ -16,7 +16,7 @@ function Header({ show, setShow }) {
       ></a>
       <img src={logoBlog} />
       <form className="buscador">
-        <input type="search" placeholder="buscar un post..." />
+        <input type="search" placeholder="buscar un post...(spoiler no funciona)" />
         <button>buscar</button>
       </form>
       {show && <h2>sos administrador</h2>}
