@@ -1,18 +1,15 @@
 import React from "react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm'; 
 import Header from "./Header";
 
-function Posts({ info, setInfo, show, setShow, comments, setComments }) {
+function Posts({ info, setInfo, show, setShow }) {
 
   function deletePosts(id){
     const newPosts = info.filter(post => post.id !== id)
-    
-    const newComments = comments.filter(comment => comment.id !== id)
     setInfo(newPosts)
-    setComments(newComments)
+    const local = localStorage.removeItem(`thecomments/${id}`)
   }
   return (
     <>
@@ -42,7 +39,7 @@ function Posts({ info, setInfo, show, setShow, comments, setComments }) {
 
 export default Posts;
 
-function Post({ link, pub, info, deletePosts, ide, show, ide2 }){
+function Post({ link, pub, deletePosts, ide, show }){
 
   return(
     <div className="posteo">

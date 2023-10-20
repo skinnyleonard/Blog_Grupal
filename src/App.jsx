@@ -10,23 +10,7 @@ function App({ createNewPost }) {
   const [ show, setShow ] = useState(false)
   const [comments, setComments] = useState([]);
 
-  const [info, setInfo] = useState([
-    {
-      id: 1,
-      user: "mickey",
-      post: "disney no me paga lo suficiente",
-    },
-    {
-      id: 2,
-      user: "el rayo mqueen",
-      post: "soy veloz",
-    },
-    {
-      id: 3,
-      user: "ruperto",
-      post: "¿como uso una computadora?",
-    },
-  ]);
+  const [info, setInfo] = useState([]);
   function createNewPost (newUser, newPost) {
     setInfo([...info, {id: info.length+1,user: newUser, post: newPost}])
   }
@@ -65,7 +49,7 @@ function App({ createNewPost }) {
       <Routes>
         <Route exact path="/" element={<Posts info={info} setInfo={setInfo} show={show} setShow={setShow} comments={comments} setComments={setComments}/>}/>
         <Route exact path="/poster" element={<Poster info={info} createNewPost={createNewPost}/>} />
-        <Route path="/posts/:id" element={<Fullpost info={info}/>} />
+        <Route path="/posts/:id" element={<Fullpost info={info} comments={comments} setComments={setComments}/>} />
         <Route path="/admin" element={<Admin show={show} setShow={setShow}/>}/>
       </Routes>
     </BrowserRouter>

@@ -20,7 +20,7 @@ function Fullpost({ info }) {
     }
   }, []);
   useEffect(() => {
-    let data = localStorage.getItem(`thecomments/${id}`);
+    let data = localStorage.getItem(`thecomments/${id}`); 
     if (data) {
       setComments(JSON.parse(data));
     }
@@ -46,6 +46,7 @@ function Fullpost({ info }) {
           <div>
             {/* returns de los comentarios */}
             <Comentador createNewComment={createNewComment} />
+            <h1><u>Comentarios</u></h1><br />
             {comments.map((coment) => (
               <div className="comments">
                 <h2>{coment.thename} <small><small>comento:</small></small></h2>

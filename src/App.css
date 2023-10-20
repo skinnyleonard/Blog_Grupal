@@ -3,14 +3,13 @@ body{
     padding: 0;
     margin: 0;
     background: #3b5998;
-    /* background: brown; */
 }
 #root{
     box-sizing: 0;
     padding: 0;
     margin: 0;
     background: #ffffffcf;
-    font-family: arial,sans-serif;
+    font-family: system-ui;
     position: absolute;
     width: 85%;
     height: auto;
