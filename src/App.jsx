@@ -7,7 +7,7 @@ import "./App.css";
 import Admin from './components/Admin'
 
 function App({ createNewPost }) {
-  const [ show, setShow ] = useState(true)
+  const [ show, setShow ] = useState(false)
   const [comments, setComments] = useState([]);
 
   const [info, setInfo] = useState([
